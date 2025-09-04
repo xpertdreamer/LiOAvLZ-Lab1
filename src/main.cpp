@@ -1,27 +1,10 @@
 #include "flheaders.hpp"
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <locale>
-#include <algorithm>
-#include <limits>
-#include <stdexcept>
-
-#ifdef _WIN32
-#include <windows.h>
-#endif
 
 using namespace std;
 
 int main() {
     try {
-        srand(static_cast<unsigned int>(time(nullptr)));
-        locale::global(locale(""));
-        
-        #ifdef _WIN32
-        SetConsoleOutputCP(1251);
-        SetConsoleCP(1251);
-        #endif
+        initialize();
 
         const int min = -40;
         const int max = 40;
@@ -51,7 +34,51 @@ int main() {
             throw runtime_error("Ошибка ввода");
         cout << "Сумма чисел в строке под номером " << row_index << ": " << calculate_sum_in_row(matrix, row_index, cols, rows);
         free_2DArray(matrix, rows);
-        
+
+        int choice;
+        if (!validate_input(cin, choice, "Выберите поле для поиска(1 - имя, 2 - фамилия, 3 - факультет, 4 - id): ")) 
+            throw runtime_error("Ошибка ввода");
+        switch (choice)
+        {
+            case 1:
+            {
+                string firstname;
+                if (!validate_input(cin, firstname, "Введите имя: ")) throw runtime_error("Ошибка ввода");
+                Student* res = find_student(studs, std::size(studs), [firstname](Student &s){return s.firstname == firstname; });
+                if (res) cout << "Найден: " << res->id << " " << res->surname << " " << res->firstname << " | " << res -> faculty << "\n";
+                else cout << "Не найден" << endl;
+                break;
+            }
+            case 2:
+            {
+                string surname;
+                if (!validate_input(cin, surname, "Введите фамилию: ")) throw runtime_error("Ошибка ввода");
+                Student* res = find_student(studs, std::size(studs), [surname](Student &s){return s.surname == surname; });
+                if (res) cout << "Найден: " << res->id << " " << res->surname << " " << res->firstname << " | " << res -> faculty << "\n";
+                else cout << "Не найден" << endl;
+                break;
+            }
+            case 3:
+            {
+                string faculty;
+                if (!validate_input(cin, faculty, "Введите фaкультет: ")) throw runtime_error("Ошибка ввода");
+                Student* res = find_student(studs, std::size(studs), [faculty](Student &s){return s.faculty == faculty; });
+                if (res) cout << "Найден: " << res->id << " " << res->surname << " " << res->firstname << " | " << res -> faculty << "\n";
+                else cout << "Не найден" << endl;
+                break;
+            }
+            case 4:
+            {
+                int id;
+                if (!validate_input(cin, id, "Введите номер зачетной книжки: ")) throw runtime_error("Ошибка ввода");
+                Student* res = find_student(studs, std::size(studs), [id](Student &s){return s.id == id; });
+                if (res) cout << "Найден: " << res->id << " " << res->surname << " " << res->firstname << " | " << res -> faculty << "\n";
+                else cout << "Не найден" << endl;
+                break;
+            }
+            default:
+                cout << "Неверный выбор!" << endl;                
+        }
     } catch (const exception& e) {
         cerr << "Ошибка: " << e.what() << endl;
         return EXIT_FAILURE;
