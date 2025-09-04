@@ -16,6 +16,7 @@ int calculate_difference(int* array, int size);
 int** create_2DArray(int rows, int cols, int min, int max);
 void print_2DArray(int** matrix, int rows, int cols);
 void free_2DArray(int** matrix, int rows);
+int calculate_sum_in_row(int** matrix, int row_index, int cols, int rows);
 
 void initialize();
 bool validate_input(std::istream& input, int& value, const char* prompt);

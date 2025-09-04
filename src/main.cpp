@@ -45,6 +45,11 @@ int main() {
         int **matrix = create_2DArray(rows, cols, min, max);
         cout << "Сгенерированная матрица:" << endl;
         print_2DArray(matrix, rows, cols);
+
+        int row_index;
+        if (!validate_input(cin, row_index, "Введите номер строки: "))
+            throw runtime_error("Ошибка ввода");
+        cout << "Сумма чисел в строке под номером " << row_index << ": " << calculate_sum_in_row(matrix, row_index, cols, rows);
         free_2DArray(matrix, rows);
         
     } catch (const exception& e) {

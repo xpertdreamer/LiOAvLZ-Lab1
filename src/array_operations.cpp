@@ -55,6 +55,21 @@ void print_2DArray(int** matrix, int rows, int cols) {
     }
 }
 
+int calculate_sum_in_row(int** matrix, int row_index, int cols, int rows) {
+    int sum = 0;
+    if (matrix == nullptr 
+        || row_index - 1 <= 0
+        || row_index - 1 > rows
+        || cols <= 0) return 0;
+    int i = 0;
+    while (i < cols) {
+        sum += matrix[row_index - 1][i];
+        i++;
+    }
+
+    return sum;
+}
+
 void free_2DArray(int** matrix, int rows) {
     for (int i = 0; i < rows; i++) free(matrix[i]);
     free(matrix);
