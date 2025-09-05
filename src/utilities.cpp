@@ -43,7 +43,7 @@ bool validate_input(istream& input, string& value, const char* prompt) {
 }
 
 bool validate_input(istream& input, int& value1, int& value2, const char* prompt) {
-    std::cout << prompt;
+    cout << prompt;
     if (!(input >> value1 >> value2) || value1 <= 0 || value2 <= 0) {
         input.clear();
         // игнорируем ввод до конца строки
@@ -51,4 +51,9 @@ bool validate_input(istream& input, int& value1, int& value2, const char* prompt
         return false;
     }
     return true;
+} 
+
+void print_student(Student *st) {
+    if (st) cout << "Найден: " << st->id << " | " << st->surname << " " << st->firstname << " | " << st -> faculty << "\n";
+    else cout << "Не найден" << endl;
 }

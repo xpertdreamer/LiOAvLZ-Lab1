@@ -7,7 +7,6 @@
 #include <ctime>
 #include <locale>
 #include <algorithm>
-#include "windows.h"
 #include <string>
 #include <iterator>
 #include <limits>
@@ -37,7 +36,7 @@ int calculate_sum_in_row(int** matrix, int row_index, int cols, int rows);
 
 template<class Pred>
 Student* find_student(struct Student st[], int n, Pred pred) {
-    for (std::size_t i = 0; i < n; ++i)
+    for (int i = 0; i < n; ++i)
         if (pred(st[i])) return &st[i];
     return nullptr;
 }
@@ -46,5 +45,6 @@ void initialize();
 bool validate_input(std::istream& input, int& value, const char* prompt);
 bool validate_input(std::istream& input, int& value1, int& value2, const char* prompt);
 bool validate_input(std::istream& input, std::string& value, const char* prompt);
+void print_student(Student *st);
 
 #endif // FLHEADERS_H

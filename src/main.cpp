@@ -32,7 +32,7 @@ int main() {
         int row_index;
         if (!validate_input(cin, row_index, "Введите номер строки: "))
             throw runtime_error("Ошибка ввода");
-        cout << "Сумма чисел в строке под номером " << row_index << ": " << calculate_sum_in_row(matrix, row_index, cols, rows);
+        cout << "Сумма чисел в строке под номером " << row_index << ": " << calculate_sum_in_row(matrix, row_index, cols, rows) << endl;
         free_2DArray(matrix, rows);
 
         int choice;
@@ -45,8 +45,7 @@ int main() {
                 string firstname;
                 if (!validate_input(cin, firstname, "Введите имя: ")) throw runtime_error("Ошибка ввода");
                 Student* res = find_student(studs, std::size(studs), [firstname](Student &s){return s.firstname == firstname; });
-                if (res) cout << "Найден: " << res->id << " " << res->surname << " " << res->firstname << " | " << res -> faculty << "\n";
-                else cout << "Не найден" << endl;
+                print_student(res);
                 break;
             }
             case 2:
@@ -54,8 +53,7 @@ int main() {
                 string surname;
                 if (!validate_input(cin, surname, "Введите фамилию: ")) throw runtime_error("Ошибка ввода");
                 Student* res = find_student(studs, std::size(studs), [surname](Student &s){return s.surname == surname; });
-                if (res) cout << "Найден: " << res->id << " " << res->surname << " " << res->firstname << " | " << res -> faculty << "\n";
-                else cout << "Не найден" << endl;
+                print_student(res);
                 break;
             }
             case 3:
@@ -63,8 +61,7 @@ int main() {
                 string faculty;
                 if (!validate_input(cin, faculty, "Введите фaкультет: ")) throw runtime_error("Ошибка ввода");
                 Student* res = find_student(studs, std::size(studs), [faculty](Student &s){return s.faculty == faculty; });
-                if (res) cout << "Найден: " << res->id << " " << res->surname << " " << res->firstname << " | " << res -> faculty << "\n";
-                else cout << "Не найден" << endl;
+                print_student(res);
                 break;
             }
             case 4:
