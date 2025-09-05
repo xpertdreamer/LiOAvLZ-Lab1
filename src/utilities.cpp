@@ -57,3 +57,11 @@ void print_student(Student *st) {
     if (st) cout << "Найден: " << st->id << " | " << st->surname << " " << st->firstname << " | " << st -> faculty << "\n";
     else cout << "Не найден" << endl;
 }
+
+void print_student(const std::vector<Student> &sts) {
+    if(sts.size() == 0) cout << "Не найден" << endl;
+    else 
+    for (const auto& st : sts) {
+        cout << "Найден: " << st.id << " | " << st.surname << " " << st.firstname << " | " << st.faculty << "\n";
+    }
+}

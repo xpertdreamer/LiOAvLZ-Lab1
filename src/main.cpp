@@ -44,7 +44,7 @@ int main() {
             {
                 string firstname;
                 if (!validate_input(cin, firstname, "Введите имя: ")) throw runtime_error("Ошибка ввода");
-                Student* res = find_student(studs, std::size(studs), [firstname](Student &s){return s.firstname == firstname; });
+                vector<Student> res = find_student(studs, std::size(studs), [firstname](Student &s){return s.firstname == firstname; });
                 print_student(res);
                 break;
             }
@@ -52,7 +52,7 @@ int main() {
             {
                 string surname;
                 if (!validate_input(cin, surname, "Введите фамилию: ")) throw runtime_error("Ошибка ввода");
-                Student* res = find_student(studs, std::size(studs), [surname](Student &s){return s.surname == surname; });
+                vector<Student> res = find_student(studs, std::size(studs), [surname](Student &s){return s.surname == surname; });
                 print_student(res);
                 break;
             }
@@ -60,7 +60,7 @@ int main() {
             {
                 string faculty;
                 if (!validate_input(cin, faculty, "Введите фaкультет: ")) throw runtime_error("Ошибка ввода");
-                Student* res = find_student(studs, std::size(studs), [faculty](Student &s){return s.faculty == faculty; });
+                vector<Student> res = find_student(studs, std::size(studs), [faculty](Student &s){return s.faculty == faculty; });
                 print_student(res);
                 break;
             }
@@ -68,7 +68,7 @@ int main() {
             {
                 int id;
                 if (!validate_input(cin, id, "Введите номер зачетной книжки: ")) throw runtime_error("Ошибка ввода");
-                Student* res = find_student(studs, std::size(studs), [id](Student &s){return s.id == id; });
+                vector<Student> res = find_student(studs, std::size(studs), [id](Student &s){return s.id == id; });
                 print_student(res);
                 break;
             }
