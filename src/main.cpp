@@ -69,8 +69,7 @@ int main() {
                 int id;
                 if (!validate_input(cin, id, "Введите номер зачетной книжки: ")) throw runtime_error("Ошибка ввода");
                 Student* res = find_student(studs, std::size(studs), [id](Student &s){return s.id == id; });
-                if (res) cout << "Найден: " << res->id << " " << res->surname << " " << res->firstname << " | " << res -> faculty << "\n";
-                else cout << "Не найден" << endl;
+                print_student(res);
                 break;
             }
             default:
