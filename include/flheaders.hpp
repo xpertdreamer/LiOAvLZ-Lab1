@@ -44,6 +44,8 @@ std::vector<Student> find_student(struct Student st[], int n, Pred pred) {
         }
     return sts;
 }
+bool contains_substring(const Student& student, const std::string& substring);
+bool contains_any(const Student& student, const std::string& substring);
 
 void initialize();
 bool validate_input(std::istream& input, int& value, const char* prompt);

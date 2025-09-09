@@ -65,3 +65,16 @@ void print_student(const std::vector<Student> &sts) {
         cout << "Найден: " << st.id << " | " << st.surname << " " << st.firstname << " | " << st.faculty << "\n";
     }
 }
+
+bool contains_substring(const Student& student, const std::string& substring) {
+    return student.surname.find(substring) != std::string::npos ||
+           student.firstname.find(substring) != std::string::npos ||
+           student.faculty.find(substring) != std::string::npos;
+}
+
+bool contains_any(const Student& student, const std::string& substring) {
+    return student.surname.find(substring) != std::string::npos ||
+           student.firstname.find(substring) != std::string::npos ||
+           student.faculty.find(substring) != std::string::npos ||
+           to_string(student.id).find(substring) != std::string::npos;
+}
