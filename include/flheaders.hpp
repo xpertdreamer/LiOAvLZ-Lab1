@@ -11,6 +11,7 @@
 #include <iterator>
 #include <limits>
 #include <vector>
+#include <iomanip>
 
 struct Student {
     std::string surname;
