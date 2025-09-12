@@ -60,7 +60,7 @@ void print_student(Student *st) {
 
 void print_student(const List<Student> &sts) {
     if(sts.get_size() == 0) cout << "Не найден" << endl;
-    else 
+    else
     for (int i = 0; i < sts.get_size(); i++) {
         const auto& st = sts.at(i);
         cout << "Найден: " << st.id << " | " << st.surname << " " << st.firstname << " | " << st.faculty << "\n";

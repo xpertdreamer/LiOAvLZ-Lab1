@@ -36,11 +36,14 @@ int main() {
         cout << "Сумма чисел в строке под номером " << row_index << ": " << calculate_sum_in_row(matrix, row_index, cols, rows) << endl;
         free_2DArray(matrix, rows);
 
+        cout << "Список студентов: " << endl;
+        for (auto &stud : studs)
+            cout << stud.id << " | " << stud.surname << " " << stud.firstname << " | " << stud.faculty << "\n";
+
         string search_term;
         if (!validate_input(cin, search_term, "Введите строку для поиска: ")) 
             throw runtime_error("Ошибка ввода");
-
-        List<Student> res = find_student(studs, std::size(studs), [search_term](Student &s) {
+        const List<Student> res = find_student(studs, std::size(studs), [search_term](const Student &s) {
             return contains_any(s, search_term);
         });
         print_student(res);
