@@ -25,7 +25,7 @@ inline Student studs[5] = {
         {"Васильев", "Василий", "ЛФ", 993},
         {"Гурин", "Алексей", "ФВТ", 32},
         {"Захаров", "Артём", "ФВТ", 48},
-    };;
+    };
 
 int* generate_random_array(int size, int min, int max);
 void print_array(const int* array, int size);

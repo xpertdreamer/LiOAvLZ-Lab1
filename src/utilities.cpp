@@ -24,7 +24,7 @@ bool validate_input(istream& input, int& value, const char* prompt) {
     cout << prompt;
     if (!(input >> value) || value <= 0) {
         input.clear();
-        // игнорируем ввод до конца строки
+        // игнор ввода до конца строки
         input.ignore(numeric_limits<streamsize>::max(), '\n');
         return false;
     }
@@ -35,7 +35,7 @@ bool validate_input(istream& input, string& value, const char* prompt) {
     cout << prompt;
     if (!(input >> value) || value == " " ) {
         input.clear();
-        // игнорируем ввод до конца строки
+        // игнор ввода до конца строки
         input.ignore(numeric_limits<streamsize>::max(), '\n');
         return false;
     }
@@ -46,7 +46,7 @@ bool validate_input(istream& input, int& value1, int& value2, const char* prompt
     cout << prompt;
     if (!(input >> value1 >> value2) || value1 <= 0 || value2 <= 0) {
         input.clear();
-        // игнорируем ввод до конца строки
+        // игнор ввода до конца строки
         input.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
     }

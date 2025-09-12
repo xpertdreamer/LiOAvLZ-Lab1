@@ -1,4 +1,5 @@
 #include "flheaders.hpp"
+#include <list.hpp>
 
 using namespace std;
 
@@ -8,7 +9,7 @@ int main() {
 
         const int min = -40;
         const int max = 40;
-
+      
         int size;
         if (!validate_input(cin, size, "Введите размер массива: ")) 
             throw runtime_error("Ошибка ввода");
