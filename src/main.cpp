@@ -7,8 +7,8 @@ int main() {
     try {
         initialize();
 
-        const int min = -40;
-        const int max = 40;
+        constexpr int min = -40;
+        constexpr int max = 40;
       
         int size;
         if (!validate_input(cin, size, "Введите размер массива: ")) 
@@ -40,7 +40,7 @@ int main() {
         if (!validate_input(cin, search_term, "Введите строку для поиска: ")) 
             throw runtime_error("Ошибка ввода");
 
-        vector<Student> res = find_student(studs, std::size(studs), [search_term](Student &s) {
+        List<Student> res = find_student(studs, std::size(studs), [search_term](Student &s) {
             return contains_any(s, search_term);
         });
         print_student(res);

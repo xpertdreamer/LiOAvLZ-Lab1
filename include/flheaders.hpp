@@ -12,6 +12,7 @@
 #include <limits>
 #include <vector>
 #include <iomanip>
+#include <list.hpp>
 
 struct Student {
     std::string surname;
@@ -37,8 +38,8 @@ void free_2DArray(int** matrix, int rows);
 int calculate_sum_in_row(int** matrix, int row_index, int cols, int rows);
 
 template<class Pred>
-std::vector<Student> find_student(struct Student st[], int n, Pred pred) {
-    std::vector <Student> sts;
+List<Student> find_student(struct Student st[], int n, Pred pred) {
+    List<Student> sts;
     for (int i = 0; i < n; ++i)
         if (pred(st[i])) {
             sts.push_back(st[i]);
@@ -52,6 +53,6 @@ void initialize();
 bool validate_input(std::istream& input, int& value, const char* prompt);
 bool validate_input(std::istream& input, int& value1, int& value2, const char* prompt);
 bool validate_input(std::istream& input, std::string& value, const char* prompt);
-void print_student(const std::vector<Student> &sts);
+void print_student(const List<Student> &sts);
 
 #endif // FLHEADERS_H
